@@ -1,0 +1,67 @@
+﻿<Window x:Class="DXGauges_Knobs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges"
+        Title="MainWindow" Height="200" Width="350" MinHeight="200" MinWidth="350">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="KnobResourceDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="125"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <dxga:CircularGaugeControl Height="100" Width="100" >
+            <dxga:CircularGaugeControl.Scales>
+                <dxga:ArcScale StartValue="0" EndValue="100" 
+                               StartAngle="-230" EndAngle="50"
+                               MajorIntervalCount="1" MinorIntervalCount="24" 
+                               ShowLabels="False">
+                    <!--region #Needles-->
+                    <dxga:ArcScale.Needles>
+                        <dxga:ArcScaleNeedle x:Name="needle" IsInteractive="True">
+                            <dxga:ArcScaleNeedle.Options>
+                                <dxga:ArcScaleNeedleOptions EndOffset="10" />
+                            </dxga:ArcScaleNeedle.Options>
+                            <dxga:ArcScaleNeedle.Presentation>
+                                <dxga:CustomArcScaleNeedlePresentation
+                                    NeedleTemplate="{StaticResource OscilloscopeNeedleTemplate}" />
+                            </dxga:ArcScaleNeedle.Presentation>
+                        </dxga:ArcScaleNeedle>
+                    </dxga:ArcScale.Needles>
+                    <!--endregion #Needles-->
+                    <!--region #Layers-->
+                    <dxga:ArcScale.Layers>
+                        <dxga:ArcScaleLayer>
+                            <dxga:ArcScaleLayer.Presentation>
+                                <dxga:CustomArcScaleLayerPresentation 
+                                    ScaleLayerTemplate="{StaticResource OscilloscopeScaleLayerTemplate}" />
+                            </dxga:ArcScaleLayer.Presentation>
+                        </dxga:ArcScaleLayer>
+                    </dxga:ArcScale.Layers>
+                    <!--endregion #Layers-->
+                    <!--region #Tickmarks-->
+                    <dxga:ArcScale.TickmarksPresentation>
+                        <dxga:SmartTickmarksPresentation 
+                            MajorTickBrush="#FF7C8295" MinorTickBrush="#FF7C8295" />
+                    </dxga:ArcScale.TickmarksPresentation>
+                    <dxga:ArcScale.MajorTickmarkOptions>
+                        <dxga:MajorTickmarkOptions Offset="-2" />
+                    </dxga:ArcScale.MajorTickmarkOptions>
+                    <dxga:ArcScale.MinorTickmarkOptions>
+                        <dxga:MinorTickmarkOptions Offset="-2" />
+                    </dxga:ArcScale.MinorTickmarkOptions>
+                    <!--endregion #Tickmarks-->
+                </dxga:ArcScale>
+            </dxga:CircularGaugeControl.Scales>
+        </dxga:CircularGaugeControl>
+        <Label  Grid.Row="1" Foreground="Blue" Height="28" Width="92" 
+                HorizontalAlignment="Center" VerticalAlignment="Top"
+                Content="{Binding ElementName=needle, Path=Value }"
+                ContentStringFormat=" Volume: {0:f0} % " />
+    </Grid>
+</Window>
