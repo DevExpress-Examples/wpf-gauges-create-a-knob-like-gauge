@@ -12,7 +12,10 @@ This example customizes the [CircularGaugeControl](https://docs.devexpress.com/W
 
 ## Implementation Details
 
-Use custom templates for an arc scale's [needle](https://docs.devexpress.com/WPF/9957/controls-and-libraries/gauge-controls/visual-elements/circular-gauge/needle) (**OscilloscopeNeedleTemplate**) and [layer](https://docs.devexpress.com/WPF/9962/controls-and-libraries/gauge-controls/visual-elements/circular-gauge/layers) (**OscilloscopeScaleLayerTemplate**) elements to achieve the illustrated appearance. The **KnobResourceDictionary.xaml** file contains these templates.
+The **KnobResourceDictionary.xaml** file contains the following custom templates:
+
+* The **OscilloscopeNeedleTemplate** changes the arc scale's [needle](https://docs.devexpress.com/WPF/9957/controls-and-libraries/gauge-controls/visual-elements/circular-gauge/needle) appearance.
+* The **OscilloscopeScaleLayerTemplate** changes the arc scale's [layer](https://docs.devexpress.com/WPF/9962/controls-and-libraries/gauge-controls/visual-elements/circular-gauge/layers) appearance.
 
 Set the needle's [IsInteractive](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.ValueIndicatorBase.IsInteractive) property to `true` to allow users to change the gauge's value. The gauge stores its value in the needle's `Value` property.
 
