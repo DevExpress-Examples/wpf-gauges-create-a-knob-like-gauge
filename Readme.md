@@ -3,22 +3,28 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E3335)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
+
+# WPF Gauges - Create a Knob-like Gauge
+
+This example customizes the [CircularGaugeControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CircularGaugeControl). As a result, the control looks and behaves like a 'knob' element of a real-life dashboard.
+
+![Knob-like Gauge](./media/b5aca44e-e490-11e6-80bf-00155d62480c.png)
+
+## Implementation Details
+
+The **KnobResourceDictionary.xaml** file contains the following custom templates:
+
+* The **OscilloscopeNeedleTemplate** changes the arc scale's [needle](https://docs.devexpress.com/WPF/9957/controls-and-libraries/gauge-controls/visual-elements/circular-gauge/needle) appearance.
+* The **OscilloscopeScaleLayerTemplate** changes the arc scale's [layer](https://docs.devexpress.com/WPF/9962/controls-and-libraries/gauge-controls/visual-elements/circular-gauge/layers) appearance.
+
+Set the needle's [IsInteractive](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.ValueIndicatorBase.IsInteractive) property to `true` to allow users to change the gauge's value. The gauge stores its value in the needle's `Value` property.
+
+## Files to Review
 
 * [KnobResourceDictionary.xaml](./CS/DXGauges_Knobs/KnobResourceDictionary.xaml) (VB: [KnobResourceDictionary.xaml](./VB/DXGauges_Knobs/KnobResourceDictionary.xaml))
 * [MainWindow.xaml](./CS/DXGauges_Knobs/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/DXGauges_Knobs/MainWindow.xaml))
-<!-- default file list end -->
-# How to create a knob-like gauge 
 
+## Documentation
 
-<p>The following example illustrates a gauge control that looks and behaves like a typical 'knob' element of a real-life dashboard. This knob replicates the knob-like appearance and provides the capability to interactively modify its value via mouse clicks.<br><img src="https://raw.githubusercontent.com/DevExpress-Examples/how-to-create-a-knob-like-gauge-e3335/11.1.5+/media/b5aca44e-e490-11e6-80bf-00155d62480c.png"></p>
-
-
-<h3>Description</h3>
-
-<p>In this example, the knob-like gauge imitates the appearance of a real volume control. It is achieved by using custom templates for an arc scale&#39;s needle and layer elements. For your convenience, these templates are stored in the <strong>Kno</strong><strong>bRestoreDic</strong><strong>tionary</strong><strong>.</strong><strong>x</strong><strong>a</strong><strong>ml</strong> file with <strong>Oscilloscope</strong><strong>NeedleTemplate </strong>and <strong>OscilloscopeScaleLayerTemplate</strong> names, and thus can be easily re-used in your application.</p><p>The <strong>IsInteractive </strong>property of a gauge&#39;s needle<strong> </strong>is set to<strong> True</strong><strong> </strong>to enable its interactivity.</p><p>Finally, below the knob-like gauge, there is a <strong>Label</strong> control, which is bound to the <strong>Value </strong>property of a needle to display the current volume set by knob.</p>
-
-<br/>
-
-
+* [CircularGaugeControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CircularGaugeControl)
+* [Circular Gauge Elements](https://docs.devexpress.com/WPF/9954/controls-and-libraries/gauge-controls/visual-elements/circular-gauge)
