@@ -5,7 +5,7 @@
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 
-# WPF Gauges - Create a rotary knob
+# WPF Gauges - Create a volume knob
 
 This example customizes the [CircularGaugeControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CircularGaugeControl). As a result, the control looks and behaves like a 'knob' element of a real-life dashboard.
 
