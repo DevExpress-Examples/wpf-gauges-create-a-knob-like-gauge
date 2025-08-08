@@ -5,20 +5,71 @@
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 
-# WPF Gauges - Create a volume knob
+# WPF Gauges – Create a Volume Knob
 
-This example customizes the [CircularGaugeControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CircularGaugeControl). As a result, the control looks and behaves like a 'knob' element of a real-life dashboard.
+This example changes the [`CircularGaugeControl`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CircularGaugeControl) so that it looks and behaves like a volume knob.
 
-![Knob-like Gauge](./media/b5aca44e-e490-11e6-80bf-00155d62480c.png)
+![Volume Knob](./Images/circular-gauge-as-knob.jpg)
+
+Use the `CircularGaugeControl` when you need to:
+
+- Create an interactive rotary control to adjust a value.
+- Imitate analog controls in dashboards, audio mixers, or monitoring panels.
+- Apply a custom design to match a specific UI theme.
+
+Turn the gauge needle to update the percentage label under the control
 
 ## Implementation Details
 
-The **KnobResourceDictionary.xaml** file contains the following custom templates:
+### Custom Needle and Scale Templates
 
-* The **OscilloscopeNeedleTemplate** changes the arc scale's [needle](https://docs.devexpress.com/WPF/9957/controls-and-libraries/gauge-controls/visual-elements/circular-gauge/needle) appearance.
-* The **OscilloscopeScaleLayerTemplate** changes the arc scale's [layer](https://docs.devexpress.com/WPF/9962/controls-and-libraries/gauge-controls/visual-elements/circular-gauge/layers) appearance.
+Define custom templates in the [KnobResourceDictionary.xaml](./CS/DXGauges_Knobs/KnobResourceDictionary.xaml) file:
 
-Set the needle's [IsInteractive](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.ValueIndicatorBase.IsInteractive) property to `true` to allow users to change the gauge's value. The gauge stores its value in the needle's `Value` property.
+- `OscilloscopeNeedleTemplate` – changes the needle shape and color.
+- `OscilloscopeScaleLayerTemplate` – changes the gauge background and decorative elements.
+
+The following code example applies templates through [`CustomArcScaleNeedlePresentation`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CustomArcScaleNeedlePresentation) and [`CustomArcScaleLayerPresentation`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CustomArcScaleLayerPresentation) properties:
+
+```xaml
+<dxga:ArcScaleNeedle.Presentation>
+    <dxga:CustomArcScaleNeedlePresentation
+        NeedleTemplate="{StaticResource OscilloscopeNeedleTemplate}" />
+</dxga:ArcScaleNeedle.Presentation>
+...
+<dxga:ArcScaleLayer.Presentation>
+    <dxga:CustomArcScaleLayerPresentation
+        ScaleLayerTemplate="{StaticResource OscilloscopeScaleLayerTemplate}" />
+</dxga:ArcScaleLayer.Presentation>
+```
+
+### Gauge Configuration
+
+The circular gauge:
+
+* Starts at `0` and ends at `100`.
+* Uses a custom start/end angle to simulate knob rotation.
+* Hides numeric labels and displays only tick marks.
+* Supports interactive needle movement.
+
+```xaml
+<dxga:ArcScale
+    StartValue="0" EndValue="100"
+    StartAngle="-230" EndAngle="50"
+    ShowLabels="False">
+```
+
+Use the `SmartTickmarksPresentation` property to change tick mark style and position them with negative offsets to align with the custom scale.
+
+### Value Display
+
+A `Label` below the gauge binds to the needle’s `Value` property:
+
+```xaml
+<Label Content="{Binding ElementName=needle, Path=Value}"
+       ContentStringFormat=" Volume: {0:f0} % " />
+```
+
+The label updates automatically when the knob is rotated.
 
 ## Files to Review
 
@@ -29,6 +80,18 @@ Set the needle's [IsInteractive](https://docs.devexpress.com/WPF/DevExpress.Xpf.
 
 * [CircularGaugeControl](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CircularGaugeControl)
 * [Circular Gauge Elements](https://docs.devexpress.com/WPF/9954/controls-and-libraries/gauge-controls/visual-elements/circular-gauge)
+* [CustomArcScaleLayerPresentation](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CustomArcScaleLayerPresentation)
+* [CustomArcScaleNeedlePresentation](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CustomArcScaleNeedlePresentation)
+* [Gauge Controls](https://docs.devexpress.com/WPF/115093/controls-and-libraries/gauge-controls)
+
+## More Examples
+
+* [WPF Linear Gauge – Display Custom UI Elements](https://github.com/DevExpress-Examples/wpf-linear-gauge-display-custom-ui-elements)
+* [WPF Gauges Getting Started – Lesson 3 – Create a Digital Gauge](https://github.com/DevExpress-Examples/wpf-gauges-getting-started-create-digital-gauge)
+* [WPF Gauges – Set Width and Height of Symbols in Digital Gauge](https://github.com/DevExpress-Examples/wpf-gauges-set-width-and-height-of-symbols-in-digital-gauge-control)
+* [WPF Gauge – Create a Digital Gauge](https://github.com/DevExpress-Examples/wpf-create-digital-gauge)
+* [Reporting for WPF – Advanced Gauge Customization](https://github.com/DevExpress-Examples/reporting-wpf-advanced-gauge-customization)
+
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
