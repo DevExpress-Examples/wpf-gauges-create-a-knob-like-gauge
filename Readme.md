@@ -62,7 +62,7 @@ Use the `SmartTickmarksPresentation` property to change tick mark style and posi
 
 ### Value Display
 
-A `Label` below the gauge binds to the needle’s `Value` property:
+A `Label` displays the gauge value. Its content is bound to the needle’s `Value` property:
 
 ```xaml
 <Label Content="{Binding ElementName=needle, Path=Value}"
