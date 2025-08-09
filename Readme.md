@@ -44,7 +44,7 @@ The following code example applies templates through [`CustomArcScaleNeedlePrese
 
 ### Gauge Configuration
 
-The circular gauge:
+The circular gauge has the following features:
 
 * Starts at `0` and ends at `100`.
 * Uses a custom start/end angle to simulate knob rotation.
