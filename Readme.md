@@ -58,7 +58,7 @@ The circular gauge:
     ShowLabels="False">
 ```
 
-Use the `SmartTickmarksPresentation` property to change tick mark style and position them with negative offsets to align with the custom scale.
+Use the `SmartTickmarksPresentation` property to change the tick mark style and position tick marks with negative offsets to align with the custom scale.
 
 ### Value Display
 
