@@ -7,17 +7,15 @@
 
 # WPF Gauges – Create a Volume Knob
 
-This example changes the [`CircularGaugeControl`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CircularGaugeControl) so that it looks and behaves like a volume knob.
+This example changes the [`CircularGaugeControl`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CircularGaugeControl) so that it looks and behaves like a volume knob. Turn the gauge needle to update the percentage label under the control.
 
 ![Volume Knob](./Images/circular-gauge-as-knob.jpg)
 
 Use the `CircularGaugeControl` when you need to:
 
-- Create an interactive rotary control to adjust a value.
-- Imitate analog controls in dashboards, audio mixers, or monitoring panels.
-- Apply a custom design to match a specific UI theme.
-
-Turn the gauge needle to update the percentage label under the control
+* Create an interactive rotary control to adjust a value.
+* Imitate analog controls in dashboards, audio mixers, or monitoring panels.
+* Apply a custom design to match a specific UI theme.
 
 ## Implementation Details
 
@@ -25,8 +23,8 @@ Turn the gauge needle to update the percentage label under the control
 
 Define custom templates in the [KnobResourceDictionary.xaml](./CS/DXGauges_Knobs/KnobResourceDictionary.xaml) file:
 
-- `OscilloscopeNeedleTemplate` – changes the needle shape and color.
-- `OscilloscopeScaleLayerTemplate` – changes the gauge background and decorative elements.
+* `OscilloscopeNeedleTemplate` – changes the needle shape and color.
+* `OscilloscopeScaleLayerTemplate` – changes the gauge background and decorative elements.
 
 The following code example applies templates through [`CustomArcScaleNeedlePresentation`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CustomArcScaleNeedlePresentation) and [`CustomArcScaleLayerPresentation`](https://docs.devexpress.com/WPF/DevExpress.Xpf.Gauges.CustomArcScaleLayerPresentation) properties:
 
@@ -95,7 +93,7 @@ The label updates automatically when the knob is rotated.
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
-[<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-gauges-create-a-knob-like-gauge&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-gauges-create-a-knob-like-gauge&~~~was_helpful=no)
+[<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-gauges-create-volume-knob&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-gauges-create-volume-knob&~~~was_helpful=no)
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
